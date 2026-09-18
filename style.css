@@ -1,0 +1,45 @@
+:root {
+    --very-dark-magenta: hsl(300, 43%, 22%);
+    --soft-pink: hsl(333, 80%, 67%);
+    --dark-grayish-magenta: hsl(300, 24%, 96%);
+    --light-grayish-magenta: hsl(300, 24%, 96%);
+    --white: hsl(0, 0%, 100%);
+    /* font weights */
+    --light: 400;
+    --regular: 500;
+    --bold: 700;
+    --spartan: "League Spartan", sans-serif;
+    --base: 15px;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--very-dark-magenta);
+    font-family: var(--spartan);
+    font-size: var(--base);
+}
+section {
+    display: flex;
+    flex-direction: row;
+}
+.reviews {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.reviews div {
+    background-color: var(--very-dark-magenta);
+    color: var(--white);
+    padding: 1.5em;
+    /*margin: 1em;*/
+    border-radius: 0.5em;
+}
+
+/*text*/
+h1 {
+    font-weight: var(--bold);
+}
+h2 {
+    font-size: var(--base);
+    font-weight: var(--regular);
+}
