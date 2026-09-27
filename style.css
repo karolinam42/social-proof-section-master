@@ -13,39 +13,49 @@
 }
 
 body {
-    margin: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 4rem 8rem;
     background-color: var(--white);
     color: var(--very-dark-magenta);
     font-family: var(--spartan);
     font-size: var(--base);
     font-optical-sizing: auto;
     font-style: normal;
+    min-height: 80vh;
+    max-height: 98vh;
+    background-image: url(images/bg-pattern-top-desktop.svg), url(images/bg-pattern-bottom-desktop.svg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: top, bottom;
 }
 
 section {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    width: 100%;
 }
 
 header {
-    max-width: 30vw;
+    max-width: 40vw;
     height: fit-content;
 }
 
 /* ratings */
 .ratings {
     width: 100%;
-    max-width: 540px;
+    max-width: 420px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     ;
 }
 
 .ratings > div {
     width: 70%;
+    max-width: 315px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -88,15 +98,19 @@ header {
     gap: 2em;
     height: fit-content;
     align-items: start;
+    align-self: flex-end;
 }
 
 .reviews > div {
     height: auto;
+    min-height: 150px;
     background-color: var(--very-dark-magenta);
     color: var(--white);
     padding: 2rem 1.5rem;
     /*margin: 1em;*/
     border-radius: 0.5rem;
+    transition: scale rotate;
+    transition-duration: 0.2s;
 }
 
 .profile-info {
@@ -128,18 +142,35 @@ header {
     margin-top: 3rem;
 }
 
+.reviews > div:hover {
+    rotate: -1deg;
+    scale: 1.05;
+    transition: scale rotate;
+    transition-duration: 0.2s;
+    background-image: linear-gradient(95deg, hsla(300, 43%, 22%, 0) 0%, hsla(300, 40%, 29%, 0.597) 45%, hsla(300, 43%, 22%, 0) 65%);
+    animation: slidebg 5s linear infinite;
+}
+
+@keyframes slidebg {
+    to {
+        background-position: 60vw;
+    }
+}
+
 /*text*/
 h1 {
     font-size: 4rem;
     font-weight: var(--bold);
     line-height: 0.8;
+    margin: 0;
 }
 
 h2 {
     font-size: var(--base);
     font-weight: var(--regular);
     line-height: 1.5;
-    margin: 2rem 0;
+    margin: 3rem 0 4rem;
+    text-wrap: balance;
 }
 
 h3 {
@@ -156,5 +187,104 @@ h3 {
 
 p {
     line-height: 1.5;
-    margin: 0;
+    margin: 1.5rem 0 0;
+    text-wrap: balance;
+}
+
+@media screen and (width <=1110px) {
+    body {
+        margin: 4rem 3rem;
+    }
+}
+
+@media screen and (width <=900px) {
+    body {
+        margin: 4rem 3rem;
+    }
+
+    header {
+        max-width: max-content;
+    }
+
+    section {
+        flex-direction: column;
+    }
+
+    .ratings {
+        max-width: stretch;
+    }
+
+    .ratings > div {
+        width: 100%;
+        max-width: stretch;
+    }
+
+    .ratings > div:first-child {
+        align-self: center;
+    }
+
+    .ratings > div:last-child {
+        align-self: center;
+    }
+
+    .reviews {
+        flex-direction: column;
+    }
+
+    #second {
+        margin-top: inherit;
+    }
+
+    #third {
+        margin-top: inherit;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        margin: 2.5rem 0;
+        text-align: center;
+    }
+
+    .ratings {
+        margin-bottom: 2.5rem;
+        max-width: none;
+        width: 100%;
+    }
+
+    .ratings > div {
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .stars {
+        margin: 0.2rem;
+    }
+
+    .reviews {
+        margin-bottom: 2rem;
+    }
+
+    .reviews > div {
+        min-height: none;
+    }
+
+    .reviews > div:hover {
+        rotate: 0deg;
+        scale: 1;
+        transition: none;
+        transition-duration: 0.2s;
+        background-image: none;
+        animation: none;
+    }
+}
+
+@media screen and (width <=520) {
+    background-image: url(images/bg-pattern-top-mobile.svg),
+    url(images/bg-pattern-bottom-mobile.svg);
+    background-size: 100%,
+    100%;
 }
